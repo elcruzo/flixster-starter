@@ -11,6 +11,10 @@
   justify-content: space-around;
 }
 
+.loadmore-button {
+  text-align: center;
+}
+
 @media (max-width: 600px) {
   .movie-card {
     width: 100%;
