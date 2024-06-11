@@ -1,5 +1,5 @@
-import '../movielist.css'
-import MovieCard from './MovieCard';
+import './movielist.css'
+import MovieCard from '../moviecard/MovieCard';
 
 const MovieList = () => {
     return(

@@ -1,4 +1,4 @@
-import '../moviecard.css';
+import './moviecard.css';
 
 const MovieCard = () => {
     return (
