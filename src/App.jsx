@@ -17,10 +17,6 @@ const App = () => {
 
       <main>
         <MovieList />
-
-        <div className='loadmore-button'>
-          <button>Load More</button>
-        </div>
       </main>
 
       <footer>

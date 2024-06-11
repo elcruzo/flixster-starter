@@ -1,5 +1,5 @@
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     return (
         <div>
             <input type="text" />
