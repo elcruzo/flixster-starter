@@ -1,8 +1,17 @@
+import './searchbar.css';
 
-const SearchBar = (props) => {
+const SearchBar = ({searchTerm, setSearchTerm}) => {
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
     return (
-        <div>
-            <input type="text" />
+        <div id="search-container">
+            <input
+            type="text"
+            placeholder='Search movie title...'
+            value={searchTerm}
+            onChange={handleSearchChange} />
             <button type='submit' value="Submit">Search</button>
         </div>
     )
