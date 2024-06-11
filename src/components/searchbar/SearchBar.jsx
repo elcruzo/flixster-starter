@@ -1,9 +1,13 @@
 import './searchbar.css';
 
-const SearchBar = ({searchTerm, setSearchTerm}) => {
+const SearchBar = ({searchTerm, setSearchTerm, onSearch}) => {
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
+
+    const handleSearchClick = () => {
+        onSearch(searchTerm);
+    }
 
     return (
         <div id="search-container">
@@ -12,7 +16,7 @@ const SearchBar = ({searchTerm, setSearchTerm}) => {
             placeholder='Search movie title...'
             value={searchTerm}
             onChange={handleSearchChange} />
-            <button type='submit' value="Submit">Search</button>
+            <button type='button' onClick={handleSearchClick}>Search</button>
         </div>
     )
 }
