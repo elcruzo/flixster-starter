@@ -1,6 +1,6 @@
 import './sortbar.css';
 
-const SortBar = () => {
+const SortBar = (props) => {
     return (
         <div>
             <select name="sort-by" id="">
