@@ -29,8 +29,8 @@ MovieCard.propTypes = {
         title: PropTypes.string.isRequired,
         poster_path: PropTypes.string,
         vote_average: PropTypes.number
-    })
-    .isRequired, onClick: PropTypes.func.isRequired
+    }).isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 export default MovieCard;
