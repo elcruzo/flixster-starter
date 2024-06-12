@@ -110,7 +110,6 @@ export default function MovieList({searchTerm, view, onOpenModal, onCloseModal})
 
     const handleCloseModal = () => {
         setSelectedMovie(null);
-        onCloseModal();
     }
 
     useEffect(() => {
