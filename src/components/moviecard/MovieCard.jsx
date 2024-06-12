@@ -1,12 +1,18 @@
 import './moviecard.css';
+import PropTypes from 'prop-types';
 
-const MovieCard = ({movie, onClick}) => {
-    const {title, backdrop_path, vote_average} = movie;
+const MovieCard = (props) => {
+    const {title, poster_path, vote_average} = props.movie;
+    const onClick = props.onClick;
+
+    function setMovie() {
+        onClick(props.movie);
+    }
 
     return (
-        <div className="card" onClick={() => onClick(movie)}>
+        <div className="card" onClick={setMovie}>
             <div>
-                <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="Movie Poster" className='card-img' />
+                <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="Movie Poster" className='card-img' />
             </div>
             <div>
                 <h2>{title}</h2>
@@ -17,5 +23,14 @@ const MovieCard = ({movie, onClick}) => {
         </div>
     )
 }
+
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        poster_path: PropTypes.string,
+        vote_average: PropTypes.number
+    })
+    .isRequired, onClick: PropTypes.func.isRequired
+};
 
 export default MovieCard;
