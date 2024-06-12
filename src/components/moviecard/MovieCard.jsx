@@ -1,23 +1,17 @@
 import './moviecard.css';
 
-const MovieCard = (props) => {
-
-    let movie = props.movie;
-
-    let movieId = movie.id;
-    let movieTitle = movie.title;
-    let moviePoster = movie.backdrop_path;
-    let movieRating = movie.vote_average
+const MovieCard = ({movie, onClick}) => {
+    const {title, backdrop_path, vote_average} = movie;
 
     return (
-        <div className="card">
+        <div className="card" onClick={() => onClick(movie)}>
             <div>
-                <img src={ "https://image.tmdb.org/t/p/w500" + moviePoster} alt="Movie Poster" className='card-img' />
+                <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="Movie Poster" className='card-img' />
             </div>
             <div>
-                <h2>{movieTitle}</h2>
+                <h2>{title}</h2>
                 <div>
-                    <p>Rating: {movie.movieRating}</p>
+                    <p>Rating: {vote_average}</p>
                 </div>
             </div>
         </div>

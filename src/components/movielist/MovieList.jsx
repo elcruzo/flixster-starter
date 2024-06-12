@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import MovieCard from '../moviecard/MovieCard';
+import Modal from "../modal/Modal";
 
 import './movielist.css';
 
@@ -26,11 +27,14 @@ async function getNowPlayingMovies (apiKey, page) {
     }
 }
 
+// https://api.themoviedb.org/3/movie/550?api_key=###
+
 export default function MovieList({searchTerm, view}) {
 
     const API_KEY = import.meta.env.VITE_API_KEY
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         loadMovies();
@@ -48,6 +52,14 @@ export default function MovieList({searchTerm, view}) {
         setPage(prevPage => prevPage + 1);
         };
 
+    const handleMovieClick = (movie) => {
+        setSelectedMovie(movie);
+    }
+
+    const handleCloseModal = () => {
+        setSelectedMovie(null);
+    }
+
     useEffect(() => {
         setPage(1);
     }, [searchTerm, view]);
@@ -57,7 +69,7 @@ export default function MovieList({searchTerm, view}) {
             <div className="movielist">
                 {movies.length > 0 ? (
                     movies.map(movie => (
-                        <MovieCard movie={movie} key={movie.id} />
+                        <MovieCard movie={movie} key={movie.id} onClick={handleMovieClick}/>
                     ))
                 ) : (
                     <div className="no-results-container">
@@ -69,6 +81,8 @@ export default function MovieList({searchTerm, view}) {
             <div className='loadmore-button'>
                 <button onClick={handleLoadMore}>Load More</button>
             </div>
+
+            {selectedMovie && <Modal movie={selectedMovie} onClose={handleCloseModal} />}
         </div>
 
     )
