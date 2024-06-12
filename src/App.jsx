@@ -9,6 +9,9 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState('nowPlaying')
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedGenre, setSelectedGenre] = useState('');
+  const [selectedSort, setSelectedSort] = useState(popularity_desc);
+  const [genres, setGenres] = useState([])
 
   const handleSearch = (term) => {
     setSearchTerm(term);
