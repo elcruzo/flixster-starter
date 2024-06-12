@@ -14,7 +14,7 @@ const Modal = ({ movie, onClose}) => {
                 <h2>{title}</h2>
                 <p><strong>Runtime:</strong>  {runtime} </p>
                 <p><strong>Release Date:</strong>  {release_date} </p>
-                <p><strong>Genres:</strong>  {genres.join(', ')} </p>
+                <p><strong>Genres:</strong>  {Array.isArray(genres) ? genres.map(genre => genre.name).join(', ') : 'N/A'} </p>
                 <p><strong>Overview:</strong>  {overview} </p>
             </div>
         </div>
