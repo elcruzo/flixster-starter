@@ -62,9 +62,10 @@ export default function MovieList({searchTerm, view, onOpenModal }) {
         setPage(prevPage => prevPage + 1);
         };
 
-    const handleMovieClick = (movie) => {
+    const handleMovieClick = async (movie) => {
         console.log('Movie clicked:', movie);
-        setSelectedMovie(movie);
+        const details = await getMovieDetails(API_KEY, movie.id);
+        setSelectedMovie(details);
         onOpenModal();
     }
 

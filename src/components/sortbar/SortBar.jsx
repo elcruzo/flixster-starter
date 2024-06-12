@@ -14,7 +14,7 @@ const SortBar = ({ genres, selectedGenre, setSelectedGenre, selectedSort, setSel
         <div className='sortbar'>
             <select name="genre" value={selectedGenre} onChange={handleGenreChange}>
                 <option value="">All Genres</option>
-                {genres.map((genre) => (
+                {genres && genres.map((genre) => (
                     <option key={genre.id} value={genre.id}>
                         {genre.name}
                     </option>
