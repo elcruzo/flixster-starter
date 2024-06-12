@@ -72,7 +72,7 @@ function getGenres(genreID) {
     }
 }
 
-export default function MovieList({searchTerm, view}) {
+export default function MovieList({searchTerm, view, onOpenModal, onCloseModal}) {
 
     const API_KEY = import.meta.env.VITE_API_KEY
     const [movies, setMovies] = useState([]);
@@ -105,10 +105,12 @@ export default function MovieList({searchTerm, view}) {
     const handleMovieClick = (movie) => {
         console.log('Movie clicked:', movie);
         setSelectedMovie(movie);
+        onOpenModal();
     }
 
     const handleCloseModal = () => {
         setSelectedMovie(null);
+        onCloseModal();
     }
 
     useEffect(() => {

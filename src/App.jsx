@@ -8,6 +8,7 @@ import SortBar from './components/sortbar/SortBar'
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState('nowPlaying')
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -18,8 +19,16 @@ const App = () => {
     setSearchTerm('');
   }
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  }
+
   return (
-    <div className="App">
+    <div className={`App ${isModalOpen ? 'blur-background' : ''}`}>
       <header>
         <h1 className='app-title'>Flixster</h1>
 
@@ -32,7 +41,7 @@ const App = () => {
       </header>
 
       <main>
-        <MovieList searchTerm={searchTerm} view={view} />
+        <MovieList searchTerm={searchTerm} view={view} onOpenModal={handleOpenModal} onClose={handleCloseModal} />
       </main>
 
       <footer>
