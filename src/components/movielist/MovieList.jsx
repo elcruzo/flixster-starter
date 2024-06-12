@@ -103,6 +103,7 @@ export default function MovieList({searchTerm, view}) {
         };
 
     const handleMovieClick = (movie) => {
+        console.log('Movie clicked:', movie);
         setSelectedMovie(movie);
     }
 
