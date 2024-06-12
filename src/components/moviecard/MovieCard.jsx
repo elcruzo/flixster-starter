@@ -7,6 +7,7 @@ const MovieCard = (props) => {
     let movieId = movie.id;
     let movieTitle = movie.title;
     let moviePoster = movie.backdrop_path;
+    let movieRating = movie.vote_average
 
     return (
         <div className="card">
