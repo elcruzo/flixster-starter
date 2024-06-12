@@ -45,7 +45,7 @@ export default function MovieList({searchTerm, view}) {
     }
 
     const handleLoadMore = async () => {
-        setPage(1);
+        setPage(prevPage => prevPage + 1);
         };
 
     useEffect(() => {
