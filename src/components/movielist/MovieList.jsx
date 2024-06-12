@@ -26,13 +26,11 @@ async function getNowPlayingMovies (apiKey, page) {
     }
 }
 
-export default function MovieList({searchTerm}) {
+export default function MovieList({searchTerm, view}) {
 
     const API_KEY = import.meta.env.VITE_API_KEY
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
-    const [view, setView] = useState('nowPlaying')
-    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
         loadMovies();
@@ -42,37 +40,30 @@ export default function MovieList({searchTerm}) {
         const data = searchTerm
             ?   await searchMovies(searchTerm, API_KEY, page)
             :   await getNowPlayingMovies(API_KEY, page);
-            setMovies(prevMovies => page === 1 ? data.results : [...prevMovies, ...data.results]);
+        setMovies(prevMovies => page === 1 ? data.results : [...prevMovies, ...data.results]);
         console.log('Movies State:', movies);
     }
 
     const handleLoadMore = async () => {
-        setPage(prevPage => prevPage + 1);
-        };
-
-    const handleViewChange = (newView) => {
-        setView(newView);
         setPage(1);
-        setMovies([]);
-    }
+        };
 
     useEffect(() => {
         setPage(1);
-    }, [searchTerm]);
+    }, [searchTerm, view]);
 
     return(
         <div>
             <div className="movielist">
                 {movies.length > 0 ? (
                     movies.map(movie => (
-                    <MovieCard movie={movie} key={movie.id} />
+                        <MovieCard movie={movie} key={movie.id} />
                     ))
                 ) : (
                     <div className="no-results-container">
                         <p className="no-results-message">No movies found. Please try a different search.</p>
                     </div>
                 )}
-
             </div>
 
             <div className='loadmore-button'>

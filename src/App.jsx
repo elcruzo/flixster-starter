@@ -7,10 +7,16 @@ import SortBar from './components/sortbar/SortBar'
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [view, setView] = useState('nowPlaying')
 
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
+
+  const handleViewChange = (newView) => {
+    setView(newView);
+    setSearchTerm('');
+  }
 
   return (
     <div className="App">
@@ -18,13 +24,15 @@ const App = () => {
         <h1 className='app-title'>Flixster</h1>
 
         <div className='nav-container'>
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />
+          <button onClick={() => handleViewChange('nowPlaying')}>Now Playing</button>
+          <button onClick={() => handleViewChange('search')}>Search</button>
+          {view === 'search' && <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />}
           <SortBar />
         </div>
       </header>
 
       <main>
-        <MovieList searchTerm={searchTerm} />
+        <MovieList searchTerm={searchTerm} view={view} />
       </main>
 
       <footer>
