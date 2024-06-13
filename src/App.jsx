@@ -5,6 +5,7 @@ import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
 import MovieCard from './components/moviecard/MovieCard'
 import Hamburger from 'hamburger-react';
+import Modal from './components/modal/Modal'
 
 
 const App = () => {
@@ -15,7 +16,10 @@ const App = () => {
   const [selectedSort, setSelectedSort] = useState('popularity_desc');
   const [genres, setGenres] = useState([])
   const [likedMovies, setLikedMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([])
   const [isSidebarOpen, setIsSideBarOpen] = useState(false);
+  const [isWatchedSideBarOpen, setIsWatchedSideBarOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null)
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -32,6 +36,7 @@ const App = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setSelectedMovie(null);
   }
 
   useEffect(() => {
@@ -51,8 +56,21 @@ const App = () => {
     setIsSideBarOpen(!isSidebarOpen);
   }
 
+  const toggleWatchedSidebar = () => {
+    setIsWatchedSideBarOpen(!isWatchedSideBarOpen);
+  }
+
   const handleLike = (movie) => {
     setLikedMovies((prevLikedMovies) => [...prevLikedMovies, movie]);
+  }
+
+  const handleWatched = (movie) => {
+    setWatchedMovies((prevWatchedMovies) => [...prevWatchedMovies, movie])
+  }
+
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+    handleOpenModal();
   }
 
   return (
@@ -71,7 +89,8 @@ const App = () => {
             selectedSort={selectedSort}
             setSelectedSort={setSelectedSort}
             />
-            <button className='hamburger-button' onClick={toggleSideBar}><Hamburger onToggle={toggled => ...} /></button>
+            <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />
+            <Hamburger toggled={isWatchedSideBarOpen} toggle={toggleWatchedSidebar} size={20} />
         </div>
       </header>
 
@@ -83,11 +102,36 @@ const App = () => {
           onClose={handleCloseModal}
           selectedSort={selectedSort}
           selectedGenre={selectedGenre}
-          handleLike={handleLike}/>
+          handleLike={handleLike}
+          handleWatched={handleWatched}
+          handleMovieClick={handleMovieClick}
+        />
+
+        {selectedMovie && (
+          <Modal
+            movie={selectedMovie}
+            onClose={handleCloseModal}
+            isSidebarOpen={isSidebarOpen}
+            />
+        )}
+
         {isSidebarOpen && (
-          <div className='sidebar'>
+          <div className='sidebar-right'>
             <h2>Liked Movies</h2>
             {likedMovies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onClick={() => { }}
+              />
+            ))}
+          </div>
+        )}
+
+        {isWatchedSideBarOpen && (
+          <div className='sidebar-left'>
+            <h2>Watched Movies</h2>
+            {watchedMovies.map((movie) => (
               <MovieCard
                 key={movie.id}
                 movie={movie}

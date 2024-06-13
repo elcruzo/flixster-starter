@@ -49,7 +49,7 @@ MovieList.propTypes = {
     handleLike: PropTypes.func.isRequired
 }
 
-export default function MovieList({searchTerm, view, onOpenModal, selectedSort, selectedGenre, handleLike }) {
+export default function MovieList({searchTerm, view, onOpenModal, selectedSort, selectedGenre, handleLike, handleWatched }) {
 
     const API_KEY = import.meta.env.VITE_API_KEY
     const [movies, setMovies] = useState([]);
@@ -94,7 +94,7 @@ export default function MovieList({searchTerm, view, onOpenModal, selectedSort, 
             <div className="movielist">
                 {movies.length > 0 ? (
                     movies.map(movie => (
-                        <MovieCard movie={movie} key={movie.id} onClick={handleMovieClick} onLike={handleLike}/>
+                        <MovieCard movie={movie} key={movie.id} onClick={handleMovieClick} onLike={handleLike} onWatched={handleWatched}/>
                     ))
                 ) : (
                     <div className="no-results-container">
