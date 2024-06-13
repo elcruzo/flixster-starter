@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import MovieCard from '../moviecard/MovieCard';
 import Modal from "../modal/Modal";
+import PropTypes from 'prop-types';
 
 import './movielist.css';
 
@@ -15,9 +16,10 @@ async function searchMovies (searchTerm, apiKey, page) {
     }
 }
 
-async function getNowPlayingMovies (apiKey, page) {
+async function getNowPlayingMovies (apiKey, page, sortBy, genre) {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&api_key=${apiKey}`);
+        const genreParam = genre ? `&with_genres=${genre}` : '';
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${sortBy}${genreParam}&api_key=${apiKey}`);
         const data = await response.json();
         console.log('API Data:', data);
         return data;
@@ -38,7 +40,15 @@ async function getMovieDetails (apiKey, movieId) {
     }
 }
 
-export default function MovieList({searchTerm, view, onOpenModal }) {
+MovieList.propTypes = {
+    searchTerm: PropTypes.string.isRequired,
+    view: PropTypes.string.isRequired,
+    onOpenModal: PropTypes.func.isRequired,
+    selectedSort: PropTypes.string.isRequired,
+    selectedGenre: PropTypes.string.isRequired
+}
+
+export default function MovieList({searchTerm, view, onOpenModal, selectedSort, selectedGenre }) {
 
     const API_KEY = import.meta.env.VITE_API_KEY
     const [movies, setMovies] = useState([]);
@@ -49,14 +59,14 @@ export default function MovieList({searchTerm, view, onOpenModal }) {
         const loadMovies = async () => {
             const data = searchTerm
                 ?   await searchMovies(searchTerm, API_KEY, page)
-                :   await getNowPlayingMovies(API_KEY, page);
+                :   await getNowPlayingMovies(API_KEY, page, selectedSort, selectedGenre);
 
             setMovies(prevMovies => page === 1 ? data.results : [...prevMovies, ...data.results]);
             console.log('Movies State:', movies);
         };
 
         loadMovies();
-    }, [view, searchTerm, page, API_KEY]);
+    }, [view, searchTerm, page, selectedSort, selectedGenre, API_KEY]);
 
     const handleLoadMore = async () => {
         setPage(prevPage => prevPage + 1);
