@@ -26,7 +26,9 @@ Modal.propTypes = {
         backdrop_path: PropTypes.string,
         runtime: PropTypes.number,
         release_date: PropTypes.string,
-        genres: PropTypes.arrayOf(PropTypes.string),
+        genres: PropTypes.arrayOf(PropTypes.shape ({
+            name: PropTypes.string.isRequired
+        })),
         overview: PropTypes.string,
         title: PropTypes.string.isRequired
     }),
