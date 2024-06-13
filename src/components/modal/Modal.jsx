@@ -28,7 +28,7 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
                 <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="Backdrop" className='modal-backdrop' />
                 <h2>{title}</h2>
                 <p><strong>Rating:</strong> {vote_average}</p>
-                <p><strong>Runtime:</strong>  {convertRuntime(runtime)} </p>
+                <p><strong>Duration:</strong>  {convertRuntime(runtime)} </p>
                 <p><strong>Release Date:</strong>  {release_date} </p>
                 <p><strong>Genres:</strong>  {Array.isArray(genres) ? genres.map(genre => genre.name).join(', ') : 'N/A'} </p>
                 <p><strong>Overview:</strong>  {overview} </p>
