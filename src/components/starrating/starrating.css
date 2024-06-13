@@ -1,0 +1,12 @@
+.star-rating {
+    display: flex;
+}
+
+.star-rating .fa-star {
+    color: gold;
+    margin-right: 2px;
+}
+
+.star-rating .fa-star:last-child {
+    margin-right: 0;
+}

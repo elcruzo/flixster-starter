@@ -5,7 +5,8 @@ import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
 import MovieCard from './components/moviecard/MovieCard'
 import Hamburger from 'hamburger-react';
-import Modal from './components/modal/Modal'
+import Modal from './components/modal/Modal';
+import SidebarMovieItem from './components/sidebarmovie/SideBarMovieItem'
 
 
 const App = () => {
@@ -119,10 +120,10 @@ const App = () => {
           <div className='sidebar-right'>
             <h2>Liked Movies</h2>
             {likedMovies.map((movie) => (
-              <MovieCard
+              <SidebarMovieItem
                 key={movie.id}
                 movie={movie}
-                onClick={() => { }}
+                // onClick={() => { }}
               />
             ))}
           </div>
@@ -132,10 +133,10 @@ const App = () => {
           <div className='sidebar-left'>
             <h2>Watched Movies</h2>
             {watchedMovies.map((movie) => (
-              <MovieCard
+              <SidebarMovieItem
                 key={movie.id}
                 movie={movie}
-                onClick={() => { }}
+                // onClick={() => { }}
               />
             ))}
           </div>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as solidHeart, faCheckCircle as solidCheckCircle } from '@fortawesome/fontawesome-free-solid';
 import { faHeart as regularHeart, faCircle as regularCheckCircle } from '@fortawesome/fontawesome-free-regular';
+import StarRating from '../starrating/StarRating';
 
 const MovieCard = (props) => {
     const {title, poster_path, vote_average, release_date, id} = props.movie;
@@ -54,7 +55,10 @@ const MovieCard = (props) => {
                     </span>
                 </h2>
                 <div className='card-footer'>
-                    <p>Rating: {vote_average}</p>
+                    <div className='rating-container'>
+                        <StarRating rating={vote_average} />
+                        <p>Rating: {vote_average}</p>
+                    </div>
                     <p>{releaseYear}</p>
                     <FontAwesomeIcon
                         icon={isLiked ? solidHeart : regularHeart}
