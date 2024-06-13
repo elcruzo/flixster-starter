@@ -63,7 +63,7 @@ const App = () => {
       </header>
 
       <main>
-        <MovieList searchTerm={searchTerm} view={view} onOpenModal={handleOpenModal} onClose={handleCloseModal} />
+        <MovieList searchTerm={searchTerm} view={view} onOpenModal={handleOpenModal} onClose={handleCloseModal} selectedSort={selectedSort} selectedGenre={selectedGenre} />
       </main>
 
       <footer>
