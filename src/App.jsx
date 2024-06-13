@@ -4,6 +4,7 @@ import MovieList from './components/movielist/MovieList'
 import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
 import MovieCard from './components/moviecard/MovieCard'
+import Hamburger from 'hamburger-react';
 
 
 const App = () => {
@@ -70,7 +71,7 @@ const App = () => {
             selectedSort={selectedSort}
             setSelectedSort={setSelectedSort}
             />
-            <button className='hamburger-button' onClick={toggleSideBar}>&#9776;</button>
+            <button className='hamburger-button' onClick={toggleSideBar}><Hamburger onToggle={toggled => ...} /></button>
         </div>
       </header>
 
