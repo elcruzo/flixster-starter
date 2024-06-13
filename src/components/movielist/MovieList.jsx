@@ -93,8 +93,13 @@ export default function MovieList({searchTerm, view, onOpenModal, selectedSort, 
         <div>
             <div className="movielist">
                 {movies.length > 0 ? (
-                    movies.map(movie => (
-                        <MovieCard movie={movie} key={movie.id} onClick={handleMovieClick} onLike={handleLike} onWatched={handleWatched}/>
+                    movies.map((movie, index) => (
+                        <MovieCard
+                        movie={movie}
+                        key={`${movie.id}-${page}-${index}`}
+                        onClick={handleMovieClick}
+                        onLike={handleLike}
+                        onWatched={handleWatched}/>
                     ))
                 ) : (
                     <div className="no-results-container">
