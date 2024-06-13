@@ -3,6 +3,7 @@ import './App.css'
 import MovieList from './components/movielist/MovieList'
 import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
+import MovieCard from './components/moviecard/MovieCard'
 
 
 const App = () => {
@@ -12,6 +13,8 @@ const App = () => {
   const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedSort, setSelectedSort] = useState('popularity_desc');
   const [genres, setGenres] = useState([])
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [isSidebarOpen, setIsSideBarOpen] = useState(false);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -43,6 +46,14 @@ const App = () => {
     fetchGenres();
   }, []);
 
+  const toggleSideBar = () => {
+    setIsSideBarOpen(!isSidebarOpen);
+  }
+
+  const handleLike = (movie) => {
+    setLikedMovies((prevLikedMovies) => [...prevLikedMovies, movie]);
+  }
+
   return (
     <div className={`App ${isModalOpen ? 'blur-background' : ''}`}>
       <header>
@@ -59,11 +70,31 @@ const App = () => {
             selectedSort={selectedSort}
             setSelectedSort={setSelectedSort}
             />
+            <button className='hamburger-button' onClick={toggleSideBar}>&#9776;</button>
         </div>
       </header>
 
       <main>
-        <MovieList searchTerm={searchTerm} view={view} onOpenModal={handleOpenModal} onClose={handleCloseModal} selectedSort={selectedSort} selectedGenre={selectedGenre} />
+        <MovieList
+          searchTerm={searchTerm}
+          view={view}
+          onOpenModal={handleOpenModal}
+          onClose={handleCloseModal}
+          selectedSort={selectedSort}
+          selectedGenre={selectedGenre}
+          handleLike={handleLike}/>
+        {isSidebarOpen && (
+          <div className='sidebar'>
+            <h2>Liked Movies</h2>
+            {likedMovies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onClick={() => { }}
+              />
+            ))}
+          </div>
+        )}
       </main>
 
       <footer>

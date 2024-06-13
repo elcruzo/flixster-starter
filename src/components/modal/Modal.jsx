@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import './modal.css'
 import PropTypes from 'prop-types';
 
@@ -5,6 +6,20 @@ const Modal = ({ movie, onClose}) => {
     if (!movie) return null;
 
     const {backdrop_path, vote_average, runtime, release_date, genres, overview, title} = movie;
+
+    const handleOutsideClick = (event) => {
+        if (event.target.className === 'modal-overlay') {
+            onClose();
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('click', handleOutsideClick);
+
+        return () => {
+            window.removeEventListener('click', handleOutsideClick)
+        }
+    }, [])
 
     return (
         <div className='modal-overlay'>
@@ -20,6 +35,12 @@ const Modal = ({ movie, onClose}) => {
             </div>
         </div>
     )
+}
+
+const convertRuntime = (runtime) => {
+    const hours = Math.floor(runtime/60);
+    const minutes = runtime % 60;
+    return `${hours}h ${minutes}m`
 }
 
 Modal.propTypes = {
