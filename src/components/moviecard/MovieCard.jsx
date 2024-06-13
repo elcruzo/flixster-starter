@@ -9,10 +9,12 @@ const MovieCard = (props) => {
         onClick(props.movie);
     }
 
+    const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '../../../src/assets/film.jpeg';
+    const imgClass = poster_path ? 'card-img' : 'dummy-img'
     return (
         <div className="card" onClick={setMovie}>
             <div>
-                <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="Movie Poster" className='card-img' />
+                <img src={posterImage} alt="Movie Poster" className={imgClass} />
             </div>
             <div>
                 <h2>{title}</h2>

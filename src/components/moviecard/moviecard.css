@@ -19,3 +19,12 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.dummy-img {
+    width: 100%;
+    height: 420px;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    object-fit: cover;
+}
