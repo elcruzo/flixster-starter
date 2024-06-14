@@ -107,7 +107,7 @@ const App = () => {
         </div>
       </header>
 
-      <main>
+      <main className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
         <div>
           <div className='sorting-options'>
             <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />
@@ -141,7 +141,8 @@ const App = () => {
         )}
 
         {isSidebarOpen && (
-          <div className='sidebar-right'>
+          <div className={`sidebar-right ${isSidebarOpen} ? 'open' : ''}`}>
+            <button className='close-button' onClick={toggleSideBar}>&times;</button>
             <h2>Liked Movies</h2>
             {likedMovies.map((movie) => (
               <SidebarMovieItem

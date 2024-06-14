@@ -30,9 +30,21 @@
     flex: 0 0 3%;
 }
 
+.child-rating-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .rating-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.release-year {
+    text-align: center;
+    align-items: baseline;
 }
 
 .rating-container p {

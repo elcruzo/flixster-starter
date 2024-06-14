@@ -56,16 +56,18 @@ const MovieCard = (props) => {
                 </h2>
                 <div className='card-footer'>
                     <div className='rating-container'>
-                        <StarRating rating={vote_average} />
-                        <p>Rating: {vote_average}</p>
+                        <div>
+                            <StarRating rating={vote_average} />
+                        </div>
+                        <div>
+                            <FontAwesomeIcon
+                            icon={isLiked ? solidHeart : regularHeart}
+                            onClick={toggleLike}
+                            className='heart-icon'></FontAwesomeIcon>
+                        </div>
                     </div>
-                    <p>{releaseYear}</p>
-                    <FontAwesomeIcon
-                        icon={isLiked ? solidHeart : regularHeart}
-                        onClick={toggleLike}
-                        className='heart-icon'
-                    />
                 </div>
+                <p className='release-year'>{releaseYear}</p>
             </div>
         </div>
     )
