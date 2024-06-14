@@ -70,8 +70,8 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
                 <p><strong>Duration:</strong>  {convertRuntime(runtime)} </p>
                 <p><strong>Release Date:</strong>  {release_date} </p>
                 <p><strong>Genres:</strong>  {Array.isArray(genres) ? genres.map(genre => genre.name).join(', ') : 'N/A'} </p>
-                <p><strong>Overview:</strong>  {overview} </p>
-                <iframe width="400" height="200" src={`https://www.youtube.com/embed/${videoID}`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>Overview:</strong> {overview}</p>
+                <iframe width="90%" height="300px" src={`https://www.youtube.com/embed/${videoID}?autoplay=1`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     )

@@ -15,7 +15,8 @@ const SearchBar = ({searchTerm, setSearchTerm, onSearch}) => {
             type="text"
             placeholder='Search movie title...'
             value={searchTerm}
-            onChange={handleSearchChange} />
+            onChange={handleSearchChange}
+            className="search-textbox" />
             {/* <button type='button' onClick={handleSearchClick}>Search</button> */}
         </div>
     )

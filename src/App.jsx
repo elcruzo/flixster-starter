@@ -3,11 +3,12 @@ import './App.css'
 import MovieList from './components/movielist/MovieList'
 import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
-import MovieCard from './components/moviecard/MovieCard'
 import Hamburger from 'hamburger-react';
 import Modal from './components/modal/Modal';
 import SidebarMovieItem from './components/sidebarmovie/SideBarMovieItem'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import imgLogo from './assets/movie_logo.svg';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +21,8 @@ const App = () => {
   const [watchedMovies, setWatchedMovies] = useState([])
   const [isSidebarOpen, setIsSideBarOpen] = useState(false);
   const [isWatchedSideBarOpen, setIsWatchedSideBarOpen] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -77,25 +79,48 @@ const App = () => {
   return (
     <div className={`App ${isModalOpen ? 'blur-background' : ''}`}>
       <header>
-        <h1 className='app-title'>Flixster</h1>
+        <div className='logo-section'>
+          <div>
+            <h1 className='app-title'>Flixster</h1>
+          </div>
+          <div>
+            <p className='greeting-text'>Hello, Caleb <FontAwesomeIcon icon="fa-solid fa-user" className='user-icon' /></p>
+          </div>
+        </div>
 
-        <div className='nav-container'>
-          <button onClick={() => handleViewChange('nowPlaying')}>Now Playing</button>
-          <button onClick={() => handleViewChange('search')}>Search</button>
-          {view === 'search' && <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />}
-          <SortBar
-            genres={genres}
-            selectedGenre={selectedGenre}
-            setSelectedGenre={setSelectedGenre}
-            selectedSort={selectedSort}
-            setSelectedSort={setSelectedSort}
-            />
-            <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />
-            <Hamburger toggled={isWatchedSideBarOpen} toggle={toggleWatchedSidebar} size={20} />
+        <div>
+          <div className='nav-container'>
+            <button>Home</button>
+            <button>Genres</button>
+            <button onClick={() => handleViewChange('nowPlaying')}>Now Playing</button>
+            <button>Coming Soon</button>
+          </div>
+
+          <div className='search-icon-container'>
+            <div>
+              {view === 'search' && <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />}
+            </div>
+            <div>
+              <button onClick={() => handleViewChange('search')} className='search-button'><FontAwesomeIcon icon="fas fa-search" /></button>
+            </div>
+          </div>
         </div>
       </header>
 
       <main>
+        <div>
+          <div className='sorting-options'>
+            <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />
+            <SortBar
+              genres={genres}
+              selectedGenre={selectedGenre}
+              setSelectedGenre={setSelectedGenre}
+              selectedSort={selectedSort}
+              setSelectedSort={setSelectedSort}
+            />
+            <Hamburger toggled={isWatchedSideBarOpen} toggle={toggleWatchedSidebar} size={20} />
+          </div>
+        </div>
         <MovieList
           searchTerm={searchTerm}
           view={view}
