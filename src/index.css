@@ -1,19 +1,10 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Varela Round', sans-serif;
+  background-color: #151E3F;
+  color: #F2F3D9;
 }
 
-button {
-  background-color: #282c34;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #777;
-  color: white;
+.header-hr {
+  border-bottom: 1px solid #F2F3D9;
 }
