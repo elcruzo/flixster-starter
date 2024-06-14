@@ -16,6 +16,8 @@
     padding: 20px;
     border-radius: 25px;
     width: 600px;
+    height: auto;
+    overflow-y: auto;
     border: 1px solid #F2F3D9;
     position: relative;
     animation: modal-fade-in 0.3s ease-in-out forwards;
