@@ -20,6 +20,7 @@ const MovieCard = (props) => {
         setIsLiked(!isLiked);
         if (!isLiked) {
             onLike(props.movie);
+            alert('Added to your likes!');
         }
     }
 
@@ -28,19 +29,16 @@ const MovieCard = (props) => {
         setIsWatched(!isWatched);
         if (!isWatched) {
             onWatched(props.movie);
+            alert('Added to your watchlist!');
         }
     }
 
-    function setMovie() {
-        onClick(props.movie);
-    }
-
-    const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '../../../src/assets/film.jpeg';
+    const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '/src/assets/film.jpeg';
     const imgClass = poster_path ? 'card-img' : 'dummy-img';
     const releaseYear = release_date ? new Date(release_date).getFullYear() : '';
 
     return (
-        <div className="card" onClick={setMovie}>
+        <div className="card" onClick={() => onClick(props.movie)}>
             <div>
                 <img src={posterImage} alt="Movie Poster" className={imgClass} />
             </div>
@@ -67,7 +65,7 @@ const MovieCard = (props) => {
                         <FontAwesomeIcon
                         icon={isLiked ? solidHeart : regularHeart}
                         onClick={toggleLike}
-                        className='heart-icon'></FontAwesomeIcon>
+                        className={`heart-icon ${isLiked ? 'liked' : ''}`} />
                     </div>
                 </div>
             </div>
@@ -84,7 +82,8 @@ MovieCard.propTypes = {
         id: PropTypes.number.isRequired
     }).isRequired,
     onClick: PropTypes.func.isRequired,
-    onLike: PropTypes.func.isRequired
+    onLike: PropTypes.func.isRequired,
+    onWatched: PropTypes.func.isRequired
 };
 
 export default MovieCard;

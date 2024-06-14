@@ -5,6 +5,7 @@ import SearchBar from './components/searchbar/SearchBar'
 import SortBar from './components/sortbar/SortBar'
 import Hamburger from 'hamburger-react';
 import Modal from './components/modal/Modal';
+import Footer from './components/footer/Footer'
 import SidebarMovieItem from './components/sidebarmovie/SideBarMovieItem'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -165,6 +166,7 @@ const App = () => {
       <footer>
 
         {isSidebarOpen && <div className='overlay' onClick={toggleSideBar}></div>}
+        <Footer />
       </footer>
 
     </div>

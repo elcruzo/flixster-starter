@@ -61,7 +61,7 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
 
 
     return (
-        <div className={`modal-overlay ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        <div className="modal-overlay">
             <div className='modal-content' style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://image.tmdb.org/t/p/original/${backdrop_path})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                 <button className='modal-close-button' onClick={onClose}>&times;</button>
                 <div className='modal-top'>

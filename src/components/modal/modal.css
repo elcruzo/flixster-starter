@@ -26,7 +26,7 @@
     border-radius: 25px;
 }
 
-@keyframes modaal-fade-in {
+@keyframes modal-fade-in {
     0% {
         opacity: 0;
         transform: scale(0.8);
@@ -56,7 +56,7 @@
 }
 
 .modal-bottom p {
-    margin: 10px;
+    margin: 10px 10px 15px 10px;
 }
 
 .modal-image-container {
@@ -84,15 +84,15 @@
     right: 10px;
     background: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
-    color: black;
+    color: #F2F3D9;
 }
 
 .modal-overlay.active {
     display: flex;
 }
 
-.sidebar-open, .modal-content {
+/* .sidebar-open, .modal-content {
     transform: translateX(-150px);
-}
+} */
