@@ -35,7 +35,7 @@ function GetYoutubeVideo(movie_id) {
 const Modal = ({ movie, onClose, isSidebarOpen }) => {
     if (!movie) return null;
 
-    const {backdrop_path, vote_average, runtime, release_date, genres, overview, title} = movie;
+    const {backdrop_path, poster_path, vote_average, runtime, release_date, genres, overview, title} = movie;
     const [videoID, setVideoID] = useState(null);
 
     useEffect(() => {
@@ -62,16 +62,28 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
 
     return (
         <div className={`modal-overlay ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-            <div className='modal-content'>
+            <div className='modal-content' style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://image.tmdb.org/t/p/original/${backdrop_path})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                 <button className='modal-close-button' onClick={onClose}>&times;</button>
-                <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="Backdrop" className='modal-backdrop' />
-                <h2>{title}</h2>
-                <p><strong>Rating:</strong> {vote_average}</p>
-                <p><strong>Duration:</strong>  {convertRuntime(runtime)} </p>
-                <p><strong>Release Date:</strong>  {release_date} </p>
-                <p><strong>Genres:</strong>  {Array.isArray(genres) ? genres.map(genre => genre.name).join(', ') : 'N/A'} </p>
-                <p><strong>Overview:</strong> {overview}</p>
-                <iframe width="90%" height="300px" src={`https://www.youtube.com/embed/${videoID}?autoplay=1`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div className='modal-top'>
+                    <div className='modal-image-container'>
+                        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="Image" className='modal-img' />
+                    </div>
+                    <div className='modal-text-container'>
+                        <h2>{title}</h2>
+                        <hr />
+                        <div className='modal-text-sub-container'>
+                            <p><strong>Rating:</strong> {vote_average}</p>
+                            <p><strong>Duration:</strong>  {convertRuntime(runtime)} </p>
+                            <p><strong>Release Date:</strong>  {release_date} </p>
+                            <p><strong>Genres:</strong>  {Array.isArray(genres) ? genres.map(genre => genre.name).join(', ') : 'N/A'} </p>
+                        </div>
+                    </div>
+                </div>
+                <div className='modal-bottom'>
+                    <button><strong>Overview</strong></button>
+                    <p>{overview}</p>
+                </div>
+                <iframe width="100%" height="300px" src={`https://www.youtube.com/embed/${videoID}?autoplay=1`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     )
