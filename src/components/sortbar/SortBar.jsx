@@ -20,6 +20,7 @@ const SortBar = ({ genres, selectedGenre, setSelectedGenre, selectedSort, setSel
                     </option>
                 ))}
             </select>
+
             <select name="sort-by" value={selectedSort} onChange={handleSortChange} className='sortbar-sortby'>
                 <option value="populaarity.desc">Sort by Popularity</option>
                 <option value="release_date.desc">Sort by Release Date</option>

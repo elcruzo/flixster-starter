@@ -93,8 +93,8 @@ const App = () => {
           <div className='nav-container'>
             <button>Home</button>
             <button>Genres</button>
-            <button onClick={() => handleViewChange('nowPlaying')}>Now Playing</button>
-            <button>Coming Soon</button>
+            <button onClick={() => handleViewChange('nowPlaying')}>Playing</button>
+            <button>Soon</button>
           </div>
 
           <div className='search-icon-container'>
