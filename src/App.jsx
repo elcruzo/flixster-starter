@@ -59,9 +59,9 @@ const App = () => {
     setIsSideBarOpen(!isSidebarOpen);
   }
 
-  const toggleWatchedSidebar = () => {
-    setIsWatchedSideBarOpen(!isWatchedSideBarOpen);
-  }
+  // const toggleWatchedSidebar = () => {
+  //   setIsWatchedSideBarOpen(!isWatchedSideBarOpen);
+  // }
 
   const handleLike = (movie) => {
     setLikedMovies((prevLikedMovies) => [...prevLikedMovies, movie]);
@@ -118,7 +118,6 @@ const App = () => {
               selectedSort={selectedSort}
               setSelectedSort={setSelectedSort}
             />
-            <Hamburger toggled={isWatchedSideBarOpen} toggle={toggleWatchedSidebar} size={20} />
           </div>
         </div>
         <MovieList
@@ -148,20 +147,13 @@ const App = () => {
               <SidebarMovieItem
                 key={movie.id}
                 movie={movie}
-                // onClick={() => { }}
               />
             ))}
-          </div>
-        )}
-
-        {isWatchedSideBarOpen && (
-          <div className='sidebar-left'>
             <h2>Watched Movies</h2>
             {watchedMovies.map((movie) => (
               <SidebarMovieItem
                 key={movie.id}
                 movie={movie}
-                // onClick={() => { }}
               />
             ))}
           </div>
@@ -170,6 +162,7 @@ const App = () => {
 
       <footer>
 
+        {isSidebarOpen && <div className='overlay' onClick={toggleSideBar}></div>}
       </footer>
 
     </div>

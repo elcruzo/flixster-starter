@@ -1,3 +1,7 @@
+.App {
+  position: relative;
+}
+
 header {
   padding: 0 1.8rem 0 1.8rem;
   box-shadow: 0 4px 2px -2px #F2F3D9;
@@ -69,10 +73,6 @@ header {
   justify-content: space-between;
 }
 
-.hamburger-left {
-  z-index: 1001;
-}
-
 .hamburger-right {
   z-index: 1001;
 }
@@ -89,30 +89,33 @@ header {
   right: 0;
   width: 300px;
   height: 100%;
-  background: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   overflow-y: auto;
   padding: 20px;
+  border-left: 1px solid #F2F3D9;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 
-.sidebar-left {
+.sidebar-right {
+  transform: translateX(0);
+}
+
+.overlay {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 300px;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background: #fff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  overflow-y: auto;
-  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 500;
 }
 
-.sidebar .close_button {
+/* .sidebar .close_button {
   position: absolute;
   top: 0;
   right: 0;
   background: none;
   cursor: pointer;
-}
+} */

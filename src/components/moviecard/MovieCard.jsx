@@ -2,7 +2,7 @@ import {useState, useEffect } from 'react';
 import './moviecard.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart as solidHeart, faCheckCircle as solidCheckCircle } from '@fortawesome/fontawesome-free-solid';
+import { faHeart as solidHeart, faCheckCircle as solidCheckCircle, faPlus } from '@fortawesome/fontawesome-free-solid';
 import { faHeart as regularHeart, faCircle as regularCheckCircle } from '@fortawesome/fontawesome-free-regular';
 import StarRating from '../starrating/StarRating';
 
@@ -49,7 +49,7 @@ const MovieCard = (props) => {
                     <span>{title}</span>
                     <span className='watched-checkbox'>
                         <FontAwesomeIcon
-                            icon={isWatched ? solidCheckCircle : regularCheckCircle}
+                            icon={isWatched ? solidCheckCircle : faPlus}
                             onClick={toggleWatched}
                         />
                     </span>
