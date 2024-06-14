@@ -83,7 +83,9 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
                     <button><strong>Overview</strong></button>
                     <p>{overview}</p>
                 </div>
-                <iframe width="100%" height="300px" src={`https://www.youtube.com/embed/${videoID}?autoplay=1`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div>
+                    <iframe width="100%" height="300px" src={`https://www.youtube.com/embed/${videoID}?autoplay=1`} title="Work &amp; Jazz ☕Bossa Nova Tropical Ambience ~ Relaxing Bossa Nova Jazz with Chill Scenery ~ Summertime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     )
