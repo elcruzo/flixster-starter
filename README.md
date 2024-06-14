@@ -4,7 +4,7 @@ Submitted by: **Ayomide Caleb Adekoya**
 
 Estimated time spent: **36** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site]()
+Deployed Application (optional): [Flixster Deployed Site](https://flixster-starter-2a63.onrender.com)
 
 ### Application Features
 
