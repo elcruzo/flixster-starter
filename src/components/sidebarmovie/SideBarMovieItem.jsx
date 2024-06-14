@@ -5,7 +5,7 @@ import './sidebarmovieitem.css';
 const SidebarMovieItem = ({ movie }) => {
     return (
         <div className='sidebar-movie-item'>
-            <h3>{movie.title}</h3>
+            <h4>{movie.title}</h4>
             <p><strong>Rating:</strong> {movie.vote_average}</p>
             <p><strong>Release Year:</strong> {new Date(movie.release_date).getFullYear()}</p>
         </div>

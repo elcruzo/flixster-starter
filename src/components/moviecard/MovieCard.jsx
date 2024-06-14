@@ -44,30 +44,32 @@ const MovieCard = (props) => {
             <div>
                 <img src={posterImage} alt="Movie Poster" className={imgClass} />
             </div>
+
             <div className='card-text'>
-                <h2>
-                    <span>{title}</span>
-                    <span className='watched-checkbox'>
+                <div className='card-head'>
+                    <div className='card-title'>
+                        <h3>{title} ({releaseYear})</h3>
+                    </div>
+                    <div className='watched-checkbox'>
                         <FontAwesomeIcon
                             icon={isWatched ? solidCheckCircle : faPlus}
                             onClick={toggleWatched}
                         />
-                    </span>
-                </h2>
-                <div className='card-footer'>
-                    <div className='rating-container'>
-                        <div>
-                            <StarRating rating={vote_average} />
-                        </div>
-                        <div>
-                            <FontAwesomeIcon
-                            icon={isLiked ? solidHeart : regularHeart}
-                            onClick={toggleLike}
-                            className='heart-icon'></FontAwesomeIcon>
-                        </div>
                     </div>
                 </div>
-                <p className='release-year'>{releaseYear}</p>
+
+                <div className='card-footer'>
+                    <div className='rating-section'>
+                        <div><StarRating rating={vote_average} /></div>
+                        <div>{vote_average}</div>
+                    </div>
+                    <div>
+                        <FontAwesomeIcon
+                        icon={isLiked ? solidHeart : regularHeart}
+                        onClick={toggleLike}
+                        className='heart-icon'></FontAwesomeIcon>
+                    </div>
+                </div>
             </div>
         </div>
     )

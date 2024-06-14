@@ -10,7 +10,7 @@ header {
 .logo-section {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 .app-title {
@@ -89,6 +89,7 @@ header {
   left: 0;
   width: 230px;
   height: 100%;
+  background: #151E3F;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   overflow-y: auto;
@@ -96,7 +97,7 @@ header {
   border-right: 1px solid #F2F3D9;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  margin-top: 145px;
+  padding-top: 35px;
 }
 
 .sidebar-right {
@@ -109,6 +110,7 @@ header {
 
 .main-content.shifted {
   margin-left: 250px;
+  padding-left: 20px;
 }
 
 .overlay {
@@ -123,11 +125,11 @@ header {
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   background: none;
   border: none;
-  color: white;
-  font-size: 20px;
+  color: #F2F3D9;
+  font-size: 30px;
   cursor: pointer;
 }

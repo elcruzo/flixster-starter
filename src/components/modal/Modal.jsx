@@ -63,7 +63,7 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
     return (
         <div className={`modal-overlay ${isSidebarOpen ? 'sidebar-open' : ''}`}>
             <div className='modal-content'>
-                <button className='close-button' onClick={onClose}>&times;</button>
+                <button className='modal-close-button' onClick={onClose}>&times;</button>
                 <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="Backdrop" className='modal-backdrop' />
                 <h2>{title}</h2>
                 <p><strong>Rating:</strong> {vote_average}</p>

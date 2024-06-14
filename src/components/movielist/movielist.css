@@ -9,6 +9,18 @@
     text-align: center;
 }
 
+.loadmore-button button {
+    border: none;
+    background: none;
+    color: #F2F3D9;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #F2F3D9;
+    padding: 7px;
+    border-radius: 5px;
+}
+
 .no-results-container {
     display: block;
 }

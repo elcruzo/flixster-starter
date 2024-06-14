@@ -59,9 +59,9 @@ const App = () => {
     setIsSideBarOpen(!isSidebarOpen);
   }
 
-  // const toggleWatchedSidebar = () => {
-  //   setIsWatchedSideBarOpen(!isWatchedSideBarOpen);
-  // }
+  const closeSideBar = () => {
+    setIsSideBarOpen(false);
+  }
 
   const handleLike = (movie) => {
     setLikedMovies((prevLikedMovies) => [...prevLikedMovies, movie]);
@@ -110,7 +110,7 @@ const App = () => {
       <main className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
         <div>
           <div className='sorting-options'>
-            <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />
+            {isSidebarOpen ? null : <Hamburger toggled={isSidebarOpen} toggle={toggleSideBar} size={20} />}
             <SortBar
               genres={genres}
               selectedGenre={selectedGenre}
@@ -142,15 +142,16 @@ const App = () => {
 
         {isSidebarOpen && (
           <div className={`sidebar-right ${isSidebarOpen} ? 'open' : ''}`}>
-            <button className='close-button' onClick={toggleSideBar}>&times;</button>
-            <h2>Liked Movies</h2>
+            <button className='close-button' onClick={closeSideBar}>&times;</button>
+            <h3>Liked Movies</h3>
             {likedMovies.map((movie) => (
               <SidebarMovieItem
                 key={movie.id}
                 movie={movie}
               />
             ))}
-            <h2>Watched Movies</h2>
+            <hr />
+            <h3>Watched Movies</h3>
             {watchedMovies.map((movie) => (
               <SidebarMovieItem
                 key={movie.id}
