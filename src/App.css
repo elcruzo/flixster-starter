@@ -167,6 +167,9 @@ header {
     padding-bottom: 10px;
     align-items: center;
   }
+  .search-icon-container button {
+    margin-right: 0;
+  }
 
   .sidebar-right {
     width: 90%;
