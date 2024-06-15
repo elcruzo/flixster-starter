@@ -20,7 +20,6 @@ const MovieCard = (props) => {
         setIsLiked(!isLiked);
         if (!isLiked) {
             onLike(props.movie);
-            alert('Added to your likes!');
         }
     }
 
@@ -29,7 +28,6 @@ const MovieCard = (props) => {
         setIsWatched(!isWatched);
         if (!isWatched) {
             onWatched(props.movie);
-            alert('Added to your watchlist!');
         }
     }
 
