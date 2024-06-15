@@ -58,6 +58,14 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
         }
     }, [])
 
+    let img_src = null;
+    if (poster_path === null) {
+        img_src = '../../../src/assets/film.jpeg';
+    }
+
+    else {
+        img_src = `https://image.tmdb.org/t/p/w500${poster_path}`
+    }
 
 
     return (
@@ -66,7 +74,7 @@ const Modal = ({ movie, onClose, isSidebarOpen }) => {
                 <button className='modal-close-button' onClick={onClose}>&times;</button>
                 <div className='modal-top'>
                     <div className='modal-image-container'>
-                        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="Image" className='modal-img' />
+                        <img src={img_src} alt="Image" className='modal-img' />
                     </div>
                     <div className='modal-text-container'>
                         <h2>{title}</h2>

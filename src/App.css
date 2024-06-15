@@ -12,8 +12,8 @@ header {
 .logo-section {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  max-width: 100%;
+  align-items: center;
+  max-width: 97%;
 }
 
 .below-logo-section {
@@ -57,6 +57,7 @@ header {
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
+  margin-right: 50px;
 }
 
 .nav-container button:hover {
