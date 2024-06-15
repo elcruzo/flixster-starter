@@ -33,7 +33,7 @@ const MovieCard = (props) => {
         }
     }
 
-    const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '/src/assets/film.jpeg';
+    const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '../../../src/assets/film.jpeg';
     const imgClass = poster_path ? 'card-img' : 'dummy-img';
     const releaseYear = release_date ? new Date(release_date).getFullYear() : '';
 

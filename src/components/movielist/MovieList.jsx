@@ -90,7 +90,7 @@ export default function MovieList({searchTerm, view, onOpenModal, selectedSort, 
     }, [searchTerm, view]);
 
     return(
-        <div>
+        <div className="movielist-container">
             <div className="movielist">
                 {movies.length > 0 ? (
                     movies.map((movie, index) => (

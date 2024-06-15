@@ -1,7 +1,3 @@
-.sortbar {
-
-}
-
 .sortbar-genre, .sortbar-sortby {
     width: 170px;
     height: 30px;
@@ -10,4 +6,16 @@
     background-color: #F2F3D9;
     font-weight: bold;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .sortbar-genre{
+        width: 100px;
+        margin: 10px 10px 10px;
+    }
+
+    .sortbar-sortby {
+        width: 150px;
+        margin: 10px 10px 10px;
+    }
 }

@@ -81,7 +81,7 @@ const App = () => {
     <div className={`App ${isModalOpen ? 'blur-background' : ''}`}>
       <header>
         <div className='logo-section'>
-          <div>
+          <div className='app-title-container'>
             <h1 className='app-title'>Flixster</h1>
           </div>
           <div>
@@ -89,7 +89,7 @@ const App = () => {
           </div>
         </div>
 
-        <div>
+        <div className='below-logo-section'>
           <div className='nav-container'>
             <button>Home</button>
             <button>Genres</button>
