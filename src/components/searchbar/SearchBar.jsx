@@ -5,10 +5,6 @@ const SearchBar = ({searchTerm, setSearchTerm, onSearch}) => {
         setSearchTerm(event.target.value);
     };
 
-    const handleSearchClick = () => {
-        onSearch(searchTerm);
-    }
-
     return (
         <div id="search-container">
             <input
@@ -17,7 +13,6 @@ const SearchBar = ({searchTerm, setSearchTerm, onSearch}) => {
             value={searchTerm}
             onChange={handleSearchChange}
             className="search-textbox" />
-            {/* <button type='button' onClick={handleSearchClick}>Search</button> */}
         </div>
     )
 }

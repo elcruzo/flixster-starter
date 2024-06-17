@@ -94,7 +94,3 @@
 .modal-overlay.active {
     display: flex;
 }
-
-/* .sidebar-open, .modal-content {
-    transform: translateX(-150px);
-} */
